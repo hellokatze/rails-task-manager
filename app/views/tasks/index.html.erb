@@ -1,8 +1,12 @@
-<h1>All my tasks</h1>
-<p><% @tasks.each do |task| %>
-<ul><%= link_to task.title, "/tasks/#{task.id}" %>
-<%= link_to "Delete", tasks_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></ul>
-<% end %>
-</p>
+<div class="container d-flex justify-content-center flex-column">
+  <h1 class="d-flex">All my tasks</h1>
+  <div class="tasks d-flex align-items-start flex-column">
+    <p><% @tasks.each do |task| %>
+    <ul><%= link_to task.title, "/tasks/#{task.id}" %>
+    <%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></ul>
+    <% end %>
+    </p>
+    <%= link_to "Add new task", "/tasks/new" %>
+  </div>
 
-<%= link_to "Add new task", "/tasks/new" %>
+</div>
